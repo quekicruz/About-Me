@@ -9,3 +9,5 @@ Author: Keian Anthony
 
 ## Reflections and Comments
 #### Through this project I spent more time with loops and switches. Also collecting input from the user to store and use with variables.
+
+Day 2 of the project I will be editing the questionair and forcing user input of a specific datatype (EX: no null or undefined value allowed for userName). 

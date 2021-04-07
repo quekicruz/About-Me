@@ -19,10 +19,22 @@ function theySaidNo() {
 //Initializing a variable (which will be a boolean if true will start the game)
 let playGame;
 
+//Initializes a variable for the number guessing game
+let numberGuessGameAns;
+
 //Initializes a variable that will be used for calculations later
 let i = false;
 
-//Starts a while loop to ensure appropriate user input to move on
+//Initializes a variable for if they will play the number game
+let numGamePlayer
+
+//Initializes a variable for the attempts allowed in the number game
+let j = 4;
+
+//Initializes a variable for the random number in the number game
+let randomNumber;
+
+//Starts a while loop to ensure appropriate user input before moving on
 while (i === false) {
   let gameUser = prompt(`Would you like to play a guessing game to learn about me? Please answer with 'yes' or 'no'`);
 
@@ -50,7 +62,7 @@ while (i === false) {
       i = true;
       break;
     default:
-      alert(`Sorry, I didn't quite understand '${gameUserLowercase}'... Please try again`);
+      alert(`Sorry, I didn't quite understand '${gameUser}'... Please try again`);
       i = false;
   }
 }
@@ -137,4 +149,64 @@ if (playGame === true) {
 
   //Gives user a friendly leaving message
   alert(`Thanks for playing, I hope you learned something new about me!`)
+}
+
+i = false;
+while (i === false) {
+
+  //Prompts the user if they want to play a number guessing game
+  numberGuessGameAns = prompt(`Would you like to play a number guessing game? Please enter 'yes' or 'no'`)
+
+  //Sets users input to lowercase and stores in different variable
+  let numberGuessGameAnsLC = numberGuessGameAns.toLowerCase();
+
+  //Switch will return a value to tell the program to initiate the number game or not
+  switch (numberGuessGameAnsLC) {
+    case 'yes':
+      numGamePlayer = true;
+      i = true;
+      break;
+    case 'y':
+      numGamePlayer = true;
+      i = true;
+      break;
+    case 'no':
+      theySaidNo();
+      numGamePlayer = false;
+      i = true;
+      break;
+    case 'n':
+      theySaidNo();
+      numGamePlayer = false;
+      i = true;
+      break;
+    default:
+      alert(`Sorry, I didn't understand ${numberGuessGameAns}`)
+  }
+}
+
+//Tests the variable numGamePlayer, if true will execute the following number game
+if (numGamePlayer === true) {
+
+  //Sets a random number to the variable randomNumber between 0 and 100
+  randomNumber = Math.floor(Math.random() * 101);
+
+  while (j > 0) {
+    let numberGameAnswer = prompt(`Enter a number between 0 and 100. You have ${j} attempt(s) remaining.`)
+    if (numberGameAnswer === randomNumber) {
+      alert(`Good job, you got it!`);
+      break;
+    } else if (numberGameAnswer > randomNumber) {
+      alert(`Too high!`)
+      j--;
+    } else if (numberGameAnswer < randomNumber) {
+      alert(`Too low!`)
+      j--;
+    }
+  }
+
+  //Tells the user the correct answer if they exhaust all their guesses
+  if (j === 0) {
+    alert(`Better luck next time, the correct answer was ${randomNumber}.`)
+  }
 }

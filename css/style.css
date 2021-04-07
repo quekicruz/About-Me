@@ -22,3 +22,15 @@ p {
 #biography {
   margin: 5px;
 }
+
+ul {
+  list-style: circle;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li {
+  margin: 5px 0px 5px 15px;
+}
