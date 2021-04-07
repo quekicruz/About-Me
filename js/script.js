@@ -55,6 +55,9 @@ let userGameAnswerELC;
 
 let numberGameAnswer;
 
+//Sets array for final question
+let favCompany = [`microsoft`, `intel`, `nvidia`];
+
 //Starts a while loop to ensure appropriate user input before moving on
 while (i === false) {
   let gameUser = prompt(`Would you like to play a guessing game to learn about me? Please answer with 'yes' or 'no'`);
@@ -93,6 +96,9 @@ if (playGame === true) {
   userGameAnswerA = prompt(`What is my first name?`);
   userGameAnswerALC = userGameAnswerA.toLowerCase();
 
+  //Logged first question to the console
+  console.log(`Asked what my first name is.`);
+
   //if/else statements checks for correct answer
   if (userGameAnswerALC == 'keian') {
     alert(`Perfect! 1 for 1!`);
@@ -103,6 +109,9 @@ if (playGame === true) {
 
   //This question prompts the user asking if I prefer dogs to cats
   userGameAnswerB = prompt(`Do I prefer dogs or cats?`);
+
+  //Logged second question to the console
+  console.log(`Asked if I prefer cats to dogs.`);
 
   //Changes variable to lowercase
   userGameAnswerBLC = userGameAnswerB.toLowerCase();
@@ -123,6 +132,9 @@ if (playGame === true) {
 
     //Prompts user with question about where I've been
     userGameAnswerC = prompt(`Where have I been outside of the United States? I'll give you ${i} guess(es) for this question.`);
+
+    //Logged third question to the console
+    console.log(`Asked where I've been.`);
 
     //Changes variable to lowercase
     userGameAnswerCLC = userGameAnswerC.toLowerCase();
@@ -148,6 +160,9 @@ if (playGame === true) {
   //Prompted with a question asking whats my favorite color
   userGameAnswerD = prompt(`What's my favorite color?`);
 
+  //Logged fourth question to the console
+  console.log(`Asked favorite color.`);
+
   //Changes variable to lowercase
   userGameAnswerDLC = userGameAnswerD.toLowerCase();
 
@@ -161,6 +176,9 @@ if (playGame === true) {
 
   //Final question in the game asking my favorite food
   userGameAnswerE = prompt(`Whats my favorite food? Hint: It's either Enchiladas, Pop Rocks, or Cotton Candy.`);
+
+  //Logged fifth question to the console
+  console.log(`Asked what my favorite food is.`);
 
   //Changes variable to lowercase
   userGameAnswerELC = userGameAnswerE.toLowerCase();
@@ -239,20 +257,26 @@ if (numGamePlayer === true) {
 //Sets the variable j to 6 (the attempts allowed for this question)
 j = 6;
 
+//Sets a flag to check if true condition is met
+let flagVar = false;
+
 //Checks if they wanted to play the about-me game from a previous question and executes the final question if it evaluates to true
 if (playGame === true) {
   alert(`Welcome to the final and bonus question for the About-Me quiz`);
-  let favCompany = [`microsoft`, `intel`, `nvidia`];
 
-  while (j > 0) {
+  while (j > 0 && flagVar === false) {
 
     let favCompanyGuess = prompt(`What is Keian's favorite tech company? You have ${j} attempts remaining.`);
     let favCompanyGuessLC = favCompanyGuess.toLowerCase();
 
-    //Checks user's answer and compares to the variable housing my favorite tech companies
+    //Logged last question to the console
+    console.log(`Asked what my favorite tech companies are.`);
+
+    //Checks user's answer and compares to the array housing my favorite tech companies
     if (favCompanyGuessLC === favCompany[0] || favCompanyGuessLC === favCompany[1] || favCompanyGuessLC === favCompany[2]) {
       alert(`You got it right! ${favCompanyGuess} is one of my favorite tech companies.`);
       rightAnswerCount++;
+      flagVar = true;
       break;
     } else {
       alert(`${favCompanyGuess} is not one of them, but I will look into it...`);
