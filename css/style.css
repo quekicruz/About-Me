@@ -7,3 +7,18 @@ header {
   font-size: 2em;
 }
 
+.midsection {
+  padding: 10px;
+  border: solid black 2px;
+  box-sizing: border-box;
+  width: auto;
+  margin: 5px;
+}
+
+p {
+  margin: 5px;
+}
+
+#biography {
+  margin: 5px;
+}
